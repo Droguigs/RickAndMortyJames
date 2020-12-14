@@ -3,14 +3,12 @@ target 'RickyAndMortyJames' do
   use_frameworks!
 
   # Pods for RickyAndMortyJames
-  pod 'Nimble'
-  pod 'Quick'
-  pod 'Nimble-Snapshots'
   pod 'Alamofire'
 
   target 'RickyAndMortyJamesTests' do
-    inherit! :search_paths
-    # Pods for testing
+    pod 'Nimble'
+    pod 'Quick'
+    pod 'Nimble-Snapshots'
   end
 
 end

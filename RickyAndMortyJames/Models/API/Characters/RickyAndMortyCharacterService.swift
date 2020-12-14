@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RickAndMortyCharacterService: RickyAndMortyCharacterServiceProtocol {
+public class RickyAndMortyCharacterService: RickyAndMortyCharacterServiceProtocol {
     
     let api: RickyAndMortyCharacterAPIProtocol
     

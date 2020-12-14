@@ -8,7 +8,7 @@
 import Alamofire
 
 class ResponseHandler {
-    func handleResponse(response: Alamofire.DataResponse<Data, Error>,
+    func handleResponse(response: Alamofire.DataResponse<Data, AFError>,
                         callback: @escaping (Result<APIResponse>) -> Void ) {
         
         if let error = response.error {

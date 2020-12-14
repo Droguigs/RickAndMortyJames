@@ -9,6 +9,8 @@ import UIKit
 
 final class MainScreenView: UIView {
     
+    let tableView = UITableView()
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupView()

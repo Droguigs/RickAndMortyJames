@@ -39,10 +39,33 @@ extension RickyAndMortyAPIClient {
     }
     
     public func request(params: RequestParams, callback: @escaping (Result<APIResponse>) -> Void) {
-        
+        self.urlRequest(for: params) { result in
+            switch result {
+            case .success(let request):
+                if let data = request.httpBody {
+                    print("BODY: \(String(describing: String(data: data, encoding: .utf8)))")
+                }
+                if let header = request.allHTTPHeaderFields {
+                    print("HEADER: \(header)")
+                }
+                print("RESULT: \(result)")
+                
+                let req = AF.request(request)
+                
+                req.responseData { response in
+                    
+                    self.handleResponse(response) { result in
+                        callback(result)
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
-    func handleResponse(_ response: DataResponse<Data, Error>,
+    func handleResponse(_ response: DataResponse<Data, AFError>,
                         callback: @escaping (Result<APIResponse>) -> Void) {
         ResponseHandler().handleResponse(response: response, callback: callback)
     }

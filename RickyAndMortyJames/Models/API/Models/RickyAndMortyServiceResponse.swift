@@ -89,16 +89,16 @@ struct Info: Codable {
     
     let count: Int
     let pages: Int
-    let next: String
-    let prev: String
+    let next: String?
+    let prev: String?
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         count = try container.decode(Int.self, forKey: .count)
         pages = try container.decode(Int.self, forKey: .pages)
-        next = try container.decode(String.self, forKey: .next)
-        prev = try container.decode(String.self, forKey: .prev)
+        next = try container.decode(String?.self, forKey: .next)
+        prev = try container.decode(String?.self, forKey: .prev)
     }
     
     public func encode(to encoder: Encoder) throws {
