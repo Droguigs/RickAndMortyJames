@@ -6,6 +6,7 @@ target 'RickyAndMortyJames' do
   pod 'Nimble'
   pod 'Quick'
   pod 'Nimble-Snapshots'
+  pod 'Alamofire'
 
   target 'RickyAndMortyJamesTests' do
     inherit! :search_paths
